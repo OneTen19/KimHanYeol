@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class PreviewView: UIView {
+class TossPreviewView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

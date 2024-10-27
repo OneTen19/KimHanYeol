@@ -20,20 +20,20 @@ class TossView: UIViewController{
     
     private var scrollView = UIScrollView()
     private var contentView = UIView()
-    private var headerView = HeaderView()
+    private var headerView = TossHeaderView()
     
     private var infoView = UIView()
-    private var firstInfoView = FirstInfoView()
-    private var secondInfoView = SecondInfoView()
-    private var thirdInfoView = ThirdInfoView()
+    private var firstInfoView = TossFirstInfoView()
+    private var secondInfoView = TossSecondInfoView()
+    private var thirdInfoView = TossThirdInfoView()
     
-    private var newIssueView = NewIssueView()
-    private var previewView = PreviewView()
-    private var developerView = DeveloperView()
+    private var newIssueView = TossNewIssueView()
+    private var previewView = TossPreviewView()
+    private var developerView = TossDeveloperView()
     
     private var reviewView = UIView()
-    private var firstReviewView = FirstReviewView()
-    private var secondReviewView = SecondReviewView()
+    private var firstReviewView = TossFirstReviewView()
+    private var secondReviewView = TossSecondReviewView()
     
     
     private func setUI() {

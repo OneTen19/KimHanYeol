@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FirstInfoView: UIView {
+class TossFirstInfoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

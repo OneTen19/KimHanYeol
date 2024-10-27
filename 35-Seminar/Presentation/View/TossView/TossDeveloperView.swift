@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class DeveloperView: UIView {
+class TossDeveloperView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

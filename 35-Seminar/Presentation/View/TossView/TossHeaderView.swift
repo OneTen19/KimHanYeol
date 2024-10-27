@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class HeaderView: UIView {
+class TossHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

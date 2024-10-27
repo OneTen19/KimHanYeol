@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class NewIssueView: UIView {
+class TossNewIssueView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +47,7 @@ class NewIssueView: UIView {
         return label
     }()
     
-    private var versionButton: UIButton = {
+    private lazy var versionButton: UIButton = {
         let button = UIButton()
         button.setTitle("버전 기록", for: .normal)
         button.setTitleColor(.tintColor, for: .normal)
@@ -123,7 +123,7 @@ class NewIssueView: UIView {
     
     @objc private func versionButtonTapped() {
         guard let viewController = viewController() else { return }
-        let nextViewController = VersionRecordView()
+        let nextViewController = TossVersionRecordView()
         viewController.navigationController?.pushViewController(nextViewController, animated: true)
     }
     

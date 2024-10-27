@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class FirstReviewView: UIView {
+class TossFirstReviewView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,16 +53,17 @@ class FirstReviewView: UIView {
         return view
     }()
     
+    private lazy var viewAllButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("모두 보기", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(viewAllButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     private var secondSection: UIView = {
         let view = UIView()
-        
-        let viewAllButton = UIButton()
-        viewAllButton.setTitle("모두 보기", for: .normal)
-        viewAllButton.setTitleColor(.systemBlue, for: .normal)
-        viewAllButton.titleLabel?.font = .systemFont(ofSize: 16)
-        viewAllButton.addTarget(self, action: #selector(viewAllButtonTapped), for: .touchUpInside)
-        
         
         // 별 개수만큼 쌓기
         func createStarStackView(count: Int) -> UIStackView {
@@ -117,21 +118,15 @@ class FirstReviewView: UIView {
         label.textColor = .gray
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         
-        
-        [label, viewAllButton, stackView].forEach { view.addSubview($0) }
+        [label, stackView].forEach { view.addSubview($0) }
         
         label.snp.makeConstraints {
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
         
-        viewAllButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview()
-            $0.top.equalToSuperview()
-        }
-        
         stackView.snp.makeConstraints {
-            $0.top.equalTo(viewAllButton.snp.bottom)
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
         }
         
@@ -141,6 +136,7 @@ class FirstReviewView: UIView {
     private func setUI() {
         self.addSubview(firstSection)
         self.addSubview(secondSection)
+        self.addSubview(viewAllButton)
         
         firstSection.snp.makeConstraints {
             $0.leading.equalToSuperview()
@@ -149,35 +145,35 @@ class FirstReviewView: UIView {
             $0.width.equalTo(120)
         }
         
+        viewAllButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview()
+            $0.top.equalToSuperview()
+        }
+        
         secondSection.snp.makeConstraints {
             $0.leading.equalTo(firstSection.snp.trailing)
             $0.trailing.equalToSuperview()
-            $0.top.equalToSuperview()
+            $0.top.equalTo(viewAllButton.snp.bottom)
             $0.bottom.equalToSuperview()
         }
         
+
     }
     
-     func viewController() -> UIViewController? {
-         var nextResponder: UIResponder? = self
-         while let responder = nextResponder {
-             if let vc = responder as? UIViewController {
-                 return vc
-             }
-             nextResponder = responder.next
-         }
-         return nil
-     }
+    func viewController() -> UIViewController? {
+        var nextResponder: UIResponder? = self
+        while let responder = nextResponder {
+            if let vc = responder as? UIViewController {
+                return vc
+            }
+            nextResponder = responder.next
+        }
+        return nil
+    }
     
     @objc private func viewAllButtonTapped() {
         guard let viewController = viewController() else { return }
-        let nextViewController = ExtraReviewViewController()
+        let nextViewController = TossExtraReviewViewController()
         viewController.navigationController?.pushViewController(nextViewController, animated: true)
     }
-    
-}
-
-
-#Preview {
-    TossView()
 }
