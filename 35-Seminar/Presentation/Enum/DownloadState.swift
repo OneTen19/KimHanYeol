@@ -6,8 +6,7 @@
 //
 
 enum DownloadState {
-  case installed
-  case download
-  case reDownload
-  case update
+  case download // 한 번도 다운받지 않은 상태
+  case reDownload // 다운받았다가 삭제한 상태
+  case update // 업데이트
 }

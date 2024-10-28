@@ -20,11 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarVC = UITabBarController()
         
         // 탭 바 요소들
-        let todayVC = TodayViewController()
-        let gameVC = GameViewController()
-        let appVC = AppViewController()
-        let arcadeVC = ArcadeViewController()
-        let searchVC = SearchViewController()
+        let todayVC = UINavigationController(rootViewController: TodayViewController())
+        let gameVC = UINavigationController(rootViewController: GameViewController())
+        let appVC = UINavigationController(rootViewController: AppViewController())
+        let arcadeVC = UINavigationController(rootViewController: ArcadeViewController())
+        let searchVC = UINavigationController(rootViewController: SearchViewController())
         
         // 탭 바 아이템 설정
         todayVC.tabBarItem = UITabBarItem(title: "투데이", image: UIImage(systemName: "doc.text.image"), tag: 0)
@@ -36,9 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.setViewControllers([todayVC, gameVC, appVC, arcadeVC, searchVC], animated: false)
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.selectedIndex = 2
-        
-//        let navigationController = UINavigationController(rootViewController: TossViewController())
-        
+                
         self.window?.rootViewController = tabBarVC
         self.window?.makeKeyAndVisible()
         
