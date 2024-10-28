@@ -10,16 +10,11 @@ import UIKit
 import SnapKit
 
 class ChartCell: UITableViewCell {
-    static var count = 0
     
     private let iconImageView = UIImageView()
-    
     private let rankLabel = UILabel()
-    
     private let titleLabel = UILabel()
-    
     private let subTitleLabel = UILabel()
-    
     private let downloadButton = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,8 +22,6 @@ class ChartCell: UITableViewCell {
         setUI()
         setStyle()
         setLayout()
-        ChartCell.count += 1
-        print("나 \(ChartCell.count)번 생성됨")
     }
     
     required init?(coder: NSCoder) {
@@ -113,10 +106,9 @@ class ChartCell: UITableViewCell {
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle ?? app.category.rawValue
         
-        let downloadState = app.downloadState.rawValue
-        downloadState == "icloud.and.arrow.down"
-        ? downloadButton.setImage(UIImage(systemName: downloadState), for: .normal)
-        : downloadButton.setTitle(downloadState, for: .normal)
+        // 샤라웃 투 킹지석
+        downloadButton.setTitle(app.downloadState.title, for: .normal)
+        downloadButton.setImage(app.downloadState.image, for: .normal)
         
         
     }
@@ -125,3 +117,4 @@ class ChartCell: UITableViewCell {
 #Preview {
     FinanceViewController()
 }
+
