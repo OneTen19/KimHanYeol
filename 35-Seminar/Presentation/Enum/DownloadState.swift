@@ -5,8 +5,9 @@
 //  Created by OneTen on 10/28/24.
 //
 
-enum DownloadState {
-  case download // 한 번도 다운받지 않은 상태
-  case reDownload // 다운받았다가 삭제한 상태
-  case update // 업데이트
+enum DownloadState: String {
+    case download = "받기"
+    case reDownload = "icloud.and.arrow.down"
+    case downloaded = "열기"
+    case update = "업데이트"
 }

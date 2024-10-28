@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 class ChartCell: UITableViewCell {
+    static var count = 0
     
     private let iconImageView = UIImageView()
     
@@ -26,6 +27,8 @@ class ChartCell: UITableViewCell {
         setUI()
         setStyle()
         setLayout()
+        ChartCell.count += 1
+        print("나 \(ChartCell.count)번 생성됨")
     }
     
     required init?(coder: NSCoder) {
@@ -55,7 +58,6 @@ class ChartCell: UITableViewCell {
         }
         
         downloadButton.do {
-            $0.setTitle("받기", for: .normal)
             $0.setTitleColor(.tintColor, for: .normal)
             $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
             $0.layer.cornerRadius = 15
@@ -110,7 +112,13 @@ class ChartCell: UITableViewCell {
         rankLabel.text = app.ranking.description
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle ?? app.category.rawValue
-        downloadButton.setTitle(app.downloadState == .download ? "받기" : "업데이트", for: .normal)
+        
+        let downloadState = app.downloadState.rawValue
+        downloadState == "icloud.and.arrow.down"
+        ? downloadButton.setImage(UIImage(systemName: downloadState), for: .normal)
+        : downloadButton.setTitle(downloadState, for: .normal)
+        
+        
     }
 }
 

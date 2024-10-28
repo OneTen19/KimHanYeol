@@ -31,7 +31,6 @@ class TossHeaderView: UIView {
         let label = UILabel()
         label.text = "토스"
         label.font = .systemFont(ofSize: 32, weight: .semibold)
-        label.textColor = .white
         return label
     }()
     

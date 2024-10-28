@@ -52,7 +52,6 @@ class TossSecondReviewView: UIView {
             
             let firstLabel = UILabel()
             firstLabel.text = "토스 UX 전버전으로 해주세요"
-            firstLabel.textColor = .white
             firstLabel.font = .systemFont(ofSize: 16, weight: .semibold)
             
             let stackView = UIStackView()
@@ -78,7 +77,6 @@ class TossSecondReviewView: UIView {
             let fourthLabel = UILabel()
             fourthLabel.text = "최근 업데이트가 토스만의 ux 색깔 개성자체를 잃어버린 것 같습니다. 메인 화면 볼때마다 되게 부드럽고 한눈에 보기 편했는데, 이번 업데이트로 인해 딱딱해진것 같네요. 새로움을 지향하는건 좋으나 이용자들에게 강제가 아닌 선택할 수 있는 옵션이라도 만들어 주셨으면 어떨까요?"
             fourthLabel.font = .systemFont(ofSize: 16)
-            fourthLabel.textColor = .white
             fourthLabel.numberOfLines = 3
 
             [firstLabel, stackView, secondLabel, thirdLabel, fourthLabel].forEach { view.addSubview($0) }
@@ -118,7 +116,6 @@ class TossSecondReviewView: UIView {
             
             let firstLabel = UILabel()
             firstLabel.text = "개발자 답변"
-            firstLabel.textColor = .white
             firstLabel.font = .systemFont(ofSize: 16, weight: .semibold)
             
             let secondLabel = UILabel()
@@ -129,7 +126,6 @@ class TossSecondReviewView: UIView {
             let thirdLabel = UILabel()
             thirdLabel.text = "안녕하세요. 토스팀입니다. 소중한 의견을 주셔서 너무나 감사합니다. 토스 화면 UI를 사용자의 요구를 반영해 조금 더 편리하게 사용하도록 변경하였습니다만, 고객님처럼 불편하게 느끼셨을수도 있다고 생각합니다. 사용에 불편을 드려 죄송합니다." + "고객님께서 말씀해주신 내용은 반영될 수 있다 확답 드리기는 어려우나, 팀내에 공유하여 보다 편리한 토스 사용 경험을 하실 수 있도록 노력하겠습니다. 다른 문의 사항이 있다면 24시간 운영되는 카카오톡(@toss) 또는 고객센터 1599-4905로 문의 부탁드립니다. 감사합니다."
             thirdLabel.font = .systemFont(ofSize: 16)
-            thirdLabel.textColor = .white
             thirdLabel.numberOfLines = 2
             
             [firstLabel, secondLabel, thirdLabel].forEach { view.addSubview($0) }

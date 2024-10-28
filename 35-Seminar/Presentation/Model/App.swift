@@ -78,7 +78,7 @@ struct App {
             title: "KB스타뱅킹",
             subTitle: "모바일신분증, 결제, 통신도 다 되는 은행",
             category: .finance,
-            downloadState: .download,
+            downloadState: .reDownload,
             price: 0
         ),
         App(
@@ -105,7 +105,7 @@ struct App {
             title: "토스",
             subTitle: "금융이 쉬워진다",
             category: .finance,
-            downloadState: .download,
+            downloadState: .downloaded,
             price: 0
         ),
         App(

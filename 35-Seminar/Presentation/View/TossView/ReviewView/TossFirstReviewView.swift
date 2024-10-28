@@ -18,12 +18,10 @@ class TossFirstReviewView: UIView {
         let firstLabel = UILabel()
         firstLabel.text = "평가 및 리뷰"
         firstLabel.font = .systemFont(ofSize: 24, weight: .semibold)
-        firstLabel.textColor = .white
         
         let secondLabel = UILabel()
         secondLabel.text = "4.4"
         secondLabel.font = .systemFont(ofSize: 60, weight: .semibold)
-        secondLabel.textColor = .white
         
         let thirdLabel = UILabel()
         thirdLabel.text = "5점 만점"

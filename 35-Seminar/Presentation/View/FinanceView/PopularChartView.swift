@@ -1,15 +1,15 @@
 //
-//  FinanceViewController.swift
+//  PopularChartView.swift
 //  35-Seminar
 //
-//  Created by OneTen on 10/28/24.
+//  Created by OneTen on 10/29/24.
 //
 
 import UIKit
 
 import SnapKit
 
-class FinanceViewController: UIViewController {
+class PopularChartView: UIViewController {
     
     private let tableView = UITableView()
     
@@ -48,7 +48,7 @@ class FinanceViewController: UIViewController {
     
 }
 
-extension FinanceViewController: UITableViewDelegate, UITableViewDataSource {
+extension PopularChartView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return apps.count
@@ -68,17 +68,11 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let app = apps[indexPath.row]
-        
-        if app.title == "토스" {
-            let nextViewController = TossViewController()
-            self.navigationController?.pushViewController(nextViewController, animated: true)
-        }
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
 
 #Preview {
-    FinanceViewController()
+    PopularChartView()
 }

@@ -23,7 +23,6 @@ class TossNewIssueView: UIView {
         let label = UILabel()
         label.text = "새로운 소식"
         label.font = .systemFont(ofSize: 24, weight: .semibold)
-        label.textColor = .white
         
         return label
     }()
@@ -59,7 +58,6 @@ class TossNewIssueView: UIView {
         let label = UILabel()
         label.text = "* 구석구석 숨어있던 버그들을 잡았어요. 또 다른 버그가 나타나면 토스 고객센터를 찾아주세요. 늘 열려있답니다. 365일 24시간 언제든지요."
         label.font = .systemFont(ofSize: 16)
-        label.textColor = .white
         label.numberOfLines = 3
         
         return label

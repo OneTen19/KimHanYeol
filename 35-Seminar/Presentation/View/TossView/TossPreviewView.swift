@@ -23,7 +23,6 @@ class TossPreviewView: UIView {
         let label = UILabel()
         label.text = "미리보기"
         label.font = .systemFont(ofSize: 24, weight: .semibold)
-        label.textColor = .white
 
         return label
     }()
@@ -32,7 +31,6 @@ class TossPreviewView: UIView {
         let label = UILabel()
         label.text = "토스뱅크, 토스증권 서비스를 이용하시려면 토스 앱 설치가 필요합니다."
         label.font = .systemFont(ofSize: 16, weight: .semibold)
-        label.textColor = .white
         label.numberOfLines = 2
         
         return label
@@ -42,7 +40,6 @@ class TossPreviewView: UIView {
         let label = UILabel()
         label.text = "- 내 금융 현황을 한눈에, 홈*소비"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
-        label.textColor = .white
 
         return label
     }()
