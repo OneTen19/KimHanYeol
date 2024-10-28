@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TossView: UIViewController{
+class TossViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -167,7 +167,7 @@ class TossView: UIViewController{
     
 }
 
-extension TossView: UIScrollViewDelegate {
+extension TossViewController: UIScrollViewDelegate {
     
     func setUINavigationBar(tossImageView: UIImageView, openButton: UIButton) {
         // Navigation Bar에 Custom TitleView로 이미지 넣기
