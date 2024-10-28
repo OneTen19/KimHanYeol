@@ -21,7 +21,7 @@ class TossHeaderView: UIView {
     
     private var tossImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "TossImage")
+        imageView.image = .tossApp
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
         return imageView

@@ -147,7 +147,7 @@ class TossViewController: UIViewController{
     private let tossImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "TossImage")
+        imageView.image = .tossApp
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         

@@ -37,9 +37,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.selectedIndex = 2
         
-        let navigationController = UINavigationController(rootViewController: TossViewController())
+//        let navigationController = UINavigationController(rootViewController: TossViewController())
         
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = tabBarVC
         self.window?.makeKeyAndVisible()
         
     }

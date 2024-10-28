@@ -15,30 +15,25 @@ class AppViewController: UIViewController {
         super.viewDidLoad()
         setUI()
     }
-    
-    private var baseView = UIView()
-    
-    
-    private var label = UILabel().then {
-        $0.text = "앱 화면"
-        $0.font = .systemFont(ofSize: 64, weight: .semibold)
-    }
+
+    private var tableView = UITableView(frame: .zero, style: .grouped)
+
     
     func setUI() {
-        self.view.addSubview(baseView)
-        self.view.addSubview(label)
+        self.view.addSubview(tableView)
         
-        baseView.snp.makeConstraints {
+        tableView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
         
-        label.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-
         
+
 
     }
 
     
+}
+
+#Preview {
+    AppViewController()
 }
