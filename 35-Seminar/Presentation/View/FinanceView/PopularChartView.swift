@@ -11,9 +11,10 @@ import SnapKit
 
 class PopularChartView: UIViewController {
     
+    private let apps = App.freeApps
+    
     private let tableView = UITableView()
     
-    private let apps = App.freeApps
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +79,3 @@ extension PopularChartView: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-#Preview {
-    PopularChartView()
-}

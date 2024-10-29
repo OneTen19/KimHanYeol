@@ -243,6 +243,109 @@ struct App {
         
     ]
     
+    // PaidApps Mock Data
+    static let paidApps: [App] = [
+        App(
+            iconImage: .weeple,
+            ranking: 1,
+            title: "위플 가계부 Pro",
+            subTitle: "아이폰 사용자 수 1위 가계부",
+            category: .finance,
+            downloadState: .download,
+            price: 14000,
+            backgroundImage: nil,
+            appInsidePrice: false
+        ),
+        App(
+            iconImage: .easymoneybook,
+            ranking: 2,
+            title: "편한가계부 (광고제거)",
+            subTitle: "국내 1위 가계부",
+            category: .finance,
+            downloadState: .download,
+            price: 8800,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .membershipwidget,
+            ranking: 3,
+            title: "멤버십 위젯 Pro",
+            subTitle: "멤버십, 쿠폰, 포인트를 한번에 빠르게 할인/적립",
+            category: .finance,
+            downloadState: .download,
+            price: 4400,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .securitywidget,
+            ranking: 4,
+            title: "보안카드 위젯",
+            subTitle: "초싀드 계좌이체",
+            category: .finance,
+            downloadState: .download,
+            price: 3300,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .bafinancialcalculator,
+            ranking: 5,
+            title: "Ba Financial Calculator (PRO)",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 4400,
+            backgroundImage: nil,
+            appInsidePrice: false
+        ),
+        App(
+            iconImage: .myanmarmarket,
+            ranking: 6,
+            title: "Myanmar Market Price Pro",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 4400,
+            backgroundImage: nil,
+            appInsidePrice: false
+        ),
+        App(
+            iconImage: .costit,
+            ranking: 7,
+            title: "코스트잇",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 1100,
+            backgroundImage: nil,
+            appInsidePrice: false
+        ),
+        App(
+            iconImage: .baii,
+            ranking: 8,
+            title: "BA II Plus Inancial Calc",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 22000,
+            backgroundImage: nil,
+            appInsidePrice: false
+        ),
+        App(
+            iconImage: .easymoneybookclassic,
+            ranking: 9,
+            title: "편한가계부 Classic (+ PC 가계부 )",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 8800,
+            backgroundImage: nil,
+            appInsidePrice: false
+        )
+    ]
+    
     // CollectionView Apps Mock Data
     static let collectionViewApps: [App] = [
         App(
@@ -290,5 +393,113 @@ struct App {
             appInsidePrice: true
         )
     ]
+    
+    // EssentialApps Mock Data
+    static let essentialApps: [App] = [
+        App(
+            iconImage: .ifinance5,
+            ranking: 1,
+            title: "iFinance 5",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 29000,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .moneycoach,
+            ranking: 2,
+            title: "Money Coach Budget Managet",
+            subTitle: "Expense Tracker, Bill Planner",
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .finances2,
+            ranking: 3,
+            title: "Finances 2",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .moneycontrol,
+            ranking: 4,
+            title: "MoneyControl Spending Tracker",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .ynab,
+            ranking: 5,
+            title: "YNAB",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .splitwise,
+            ranking: 6,
+            title: "Splitwise",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .spendy,
+            ranking: 7,
+            title: "Spendy",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 4400,
+            backgroundImage: nil,
+            appInsidePrice: false
+        ),
+        App(
+            iconImage: .cashcounter,
+            ranking: 8,
+            title: "CashCounter",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: nil,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .macaw,
+            ranking: 9,
+            title: "Macaw: Budget & Save Money",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: nil,
+            appInsidePrice: true
+        )
+        
+    ]
+    
+    
+    
+    
     
 }

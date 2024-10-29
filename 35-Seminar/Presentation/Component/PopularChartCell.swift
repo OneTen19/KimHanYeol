@@ -113,7 +113,3 @@ class PopularChartCell: UITableViewCell {
     }
 }
 
-#Preview {
-    PopularChartView()
-}
-
