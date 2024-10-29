@@ -16,6 +16,7 @@ struct App {
     let downloadState: DownloadState
     let price: Int
     let backgroundImage: UIImage? // collectionView에 사용
+    let appInsidePrice: Bool
     
     // FreeApps Mock Data
     static let freeApps: [App] = [
@@ -27,7 +28,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .onetwo,
@@ -37,7 +39,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .naverpay,
@@ -47,7 +50,8 @@ struct App {
             category: .finance,
             downloadState: .update,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .kakaopay,
@@ -57,7 +61,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .kbpay,
@@ -67,7 +72,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .monimo,
@@ -77,7 +83,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .kbstarbank,
@@ -87,7 +94,8 @@ struct App {
             category: .finance,
             downloadState: .reDownload,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .travelwallet,
@@ -97,7 +105,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .namu,
@@ -107,7 +116,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .toss,
@@ -117,7 +127,8 @@ struct App {
             category: .finance,
             downloadState: .downloaded,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .kakaobank,
@@ -127,7 +138,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .solbank,
@@ -137,7 +149,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .nhbank,
@@ -147,7 +160,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .hanabank,
@@ -157,7 +171,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .kbank,
@@ -167,7 +182,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .v3,
@@ -177,7 +193,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .mobileTmoney,
@@ -187,7 +204,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .hyundaicard,
@@ -197,7 +215,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .solpay,
@@ -207,7 +226,8 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
+            backgroundImage: nil,
+            appInsidePrice: false
         ),
         App(
             iconImage: .hyundaidepartment,
@@ -217,22 +237,57 @@ struct App {
             category: .finance,
             downloadState: .download,
             price: 0,
-            backgroundImage: nil
-        ),
+            backgroundImage: nil,
+            appInsidePrice: false
+        )
         
     ]
     
     // CollectionView Apps Mock Data
     static let collectionViewApps: [App] = [
         App(
-            iconImage: <#T##UIImage#>,
-            ranking: <#T##Int#>,
-            title: <#T##String#>,
-            subTitle: <#T##String?#>,
-            category: <#T##AppCategory#>,
-            downloadState: <#T##DownloadState#>,
-            price: <#T##Int#>,
-            backgroundImage: <#T##UIImage?#>
+            iconImage: .currenzy,
+            ranking: 0,
+            title: "Currenzy",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 6600,
+            backgroundImage: .currenzybackground,
+            appInsidePrice: false
+        ),
+        App(
+            iconImage: .fortunecity,
+            ranking: 0,
+            title: "Fortune City - A Finance App",
+            subTitle: "좋은 소비습관을 만들어 보세요!",
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: .fortunecitybackground,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .elk,
+            ranking: 0,
+            title: "Elk - 여행 환율 변환기",
+            subTitle: nil,
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: .elkbackground,
+            appInsidePrice: true
+        ),
+        App(
+            iconImage: .taxnote,
+            ranking: 0,
+            title: "Taxnote 부기 및 회계 앱",
+            subTitle: "자영업자용 세금 환급을 위한 부기 및 회계 앱",
+            category: .finance,
+            downloadState: .download,
+            price: 0,
+            backgroundImage: .taxnotebackground,
+            appInsidePrice: true
         )
     ]
     

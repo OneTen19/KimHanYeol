@@ -81,7 +81,7 @@ class PopularChartCell: UITableViewCell {
         }
         
         titleLabel.snp.makeConstraints {
-            $0.leading.equalTo(rankLabel.snp.trailing).offset(10).priority(2)
+            $0.leading.equalTo(rankLabel.snp.trailing).offset(10)
             $0.width.equalTo(200)
             $0.top.equalTo(rankLabel)
         }
@@ -114,6 +114,6 @@ class PopularChartCell: UITableViewCell {
 }
 
 #Preview {
-    FinanceViewController()
+    PopularChartView()
 }
 
