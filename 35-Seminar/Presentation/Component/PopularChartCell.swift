@@ -1,5 +1,5 @@
 //
-//  ChartCell.swift
+//  PopularChartCell.swift
 //  35-Seminar
 //
 //  Created by OneTen on 10/28/24.
@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class ChartCell: UITableViewCell {
+class PopularChartCell: UITableViewCell {
     
     private let iconImageView = UIImageView()
     private let rankLabel = UILabel()
@@ -109,7 +109,6 @@ class ChartCell: UITableViewCell {
         // 샤라웃 투 킹지석
         downloadButton.setTitle(app.downloadState.title, for: .normal)
         downloadButton.setImage(app.downloadState.image, for: .normal)
-        
         
     }
 }

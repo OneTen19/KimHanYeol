@@ -25,7 +25,7 @@ class PopularChartView: UIViewController {
     private func setStyle() {
         
         tableView.do {
-            $0.register(ChartCell.self, forCellReuseIdentifier: ChartCell.cellIdentifier)
+            $0.register(PopularChartCell.self, forCellReuseIdentifier: PopularChartCell.cellIdentifier)
             $0.dataSource = self
             $0.delegate = self
         }
@@ -55,7 +55,7 @@ extension PopularChartView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChartCell.cellIdentifier, for: indexPath) as? ChartCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PopularChartCell.cellIdentifier, for: indexPath) as? PopularChartCell else {
             return UITableViewCell()
         }
         let app = apps[indexPath.row]
@@ -68,9 +68,14 @@ extension PopularChartView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        let app = apps[indexPath.row]
+        
+        if app.title == "토스" {
+            let nextViewController = TossViewController()
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+        
     }
-    
 }
 
 #Preview {

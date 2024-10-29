@@ -15,8 +15,9 @@ struct App {
     let category: AppCategory
     let downloadState: DownloadState
     let price: Int
+    let backgroundImage: UIImage? // collectionView에 사용
     
-    // Mock Data
+    // FreeApps Mock Data
     static let freeApps: [App] = [
         App(
             iconImage: .silson24,
@@ -25,7 +26,8 @@ struct App {
             subTitle: "간편한 실손보험 청구",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .onetwo,
@@ -34,7 +36,8 @@ struct App {
             subTitle: "한국투자:대방,공모주,펀드,연금,",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .naverpay,
@@ -43,7 +46,8 @@ struct App {
             subTitle: "지갑 없이 매장에서 결제",
             category: .finance,
             downloadState: .update,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .kakaopay,
@@ -52,7 +56,8 @@ struct App {
             subTitle: "마음 놓고 금융하다",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .kbpay,
@@ -61,7 +66,8 @@ struct App {
             subTitle: "모든 금융을 한번에, 한손에, 한눈에 담다",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .monimo,
@@ -70,7 +76,8 @@ struct App {
             subTitle: "모이는 금융, 커지는 혜택!",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .kbstarbank,
@@ -79,7 +86,8 @@ struct App {
             subTitle: "모바일신분증, 결제, 통신도 다 되는 은행",
             category: .finance,
             downloadState: .reDownload,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .travelwallet,
@@ -88,7 +96,8 @@ struct App {
             subTitle: "페이에 세계를 담다",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .namu,
@@ -97,7 +106,8 @@ struct App {
             subTitle: "쉽고 편한 국내주식, 해외주식",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .toss,
@@ -106,7 +116,8 @@ struct App {
             subTitle: "금융이 쉬워진다",
             category: .finance,
             downloadState: .downloaded,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .kakaobank,
@@ -115,7 +126,8 @@ struct App {
             subTitle: "이미 모두의 은행",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .solbank,
@@ -124,7 +136,8 @@ struct App {
             subTitle: nil,
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .nhbank,
@@ -133,7 +146,8 @@ struct App {
             subTitle: nil,
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .hanabank,
@@ -142,7 +156,8 @@ struct App {
             subTitle: "송금, 해외송금, 유학생송금",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .kbank,
@@ -151,7 +166,8 @@ struct App {
             subTitle: "make money",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .v3,
@@ -160,7 +176,8 @@ struct App {
             subTitle: "코스콤 통합인증 / 알림창 메시지 서비스",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .mobileTmoney,
@@ -169,7 +186,8 @@ struct App {
             subTitle: nil,
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .hyundaicard,
@@ -178,7 +196,8 @@ struct App {
             subTitle: nil,
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .solpay,
@@ -187,7 +206,8 @@ struct App {
             subTitle: "결제부터 자산관리, 다양한 금융",
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         App(
             iconImage: .hyundaidepartment,
@@ -196,9 +216,24 @@ struct App {
             subTitle: nil,
             category: .finance,
             downloadState: .download,
-            price: 0
+            price: 0,
+            backgroundImage: nil
         ),
         
+    ]
+    
+    // CollectionView Apps Mock Data
+    static let collectionViewApps: [App] = [
+        App(
+            iconImage: <#T##UIImage#>,
+            ranking: <#T##Int#>,
+            title: <#T##String#>,
+            subTitle: <#T##String?#>,
+            category: <#T##AppCategory#>,
+            downloadState: <#T##DownloadState#>,
+            price: <#T##Int#>,
+            backgroundImage: <#T##UIImage?#>
+        )
     ]
     
 }

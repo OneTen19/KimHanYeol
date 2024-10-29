@@ -11,9 +11,13 @@ import SnapKit
 
 class FinanceViewController: UIViewController {
     
-    private let tableView = UITableView()
-    
     private let apps = App.freeApps
+
+    private let tableView = UITableView()
+    private let imageCollectionView = UICollectionView()
+    private let sectionTableView = UITableView()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +28,10 @@ class FinanceViewController: UIViewController {
     
     private func setStyle() {
         
-        tableView.do {
-            $0.register(ChartCell.self, forCellReuseIdentifier: ChartCell.cellIdentifier)
-            $0.dataSource = self
-            $0.delegate = self
-        }
+//        tableView.do {
+//            $0.dataSource = self
+//            $0.delegate = self
+//        }
         
     }
     
@@ -40,45 +43,28 @@ class FinanceViewController: UIViewController {
     
     private func setLayout() {
         
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
+
         
     }
     
 }
 
-extension FinanceViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return apps.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChartCell.cellIdentifier, for: indexPath) as? ChartCell else {
-            return UITableViewCell()
-        }
-        let app = apps[indexPath.row]
-        cell.configure(with: app)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let app = apps[indexPath.row]
-        
-        if app.title == "토스" {
-            let nextViewController = TossViewController()
-            self.navigationController?.pushViewController(nextViewController, animated: true)
-        }
-        
-    }
-    
-}
+//extension FinanceViewController: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//    }
+//    
+//    
+//    
+//}
 
-#Preview {
-    FinanceViewController()
-}
+//#Preview {
+//    FinanceViewController()
+//}
