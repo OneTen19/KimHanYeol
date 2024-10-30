@@ -350,7 +350,7 @@ struct App {
     static let collectionViewApps: [App] = [
         App(
             iconImage: .currenzy,
-            ranking: 0,
+            ranking: 1,
             title: "Currenzy",
             subTitle: nil,
             category: .finance,
@@ -361,7 +361,7 @@ struct App {
         ),
         App(
             iconImage: .fortunecity,
-            ranking: 0,
+            ranking: 2,
             title: "Fortune City - A Finance App",
             subTitle: "좋은 소비습관을 만들어 보세요!",
             category: .finance,
@@ -372,7 +372,7 @@ struct App {
         ),
         App(
             iconImage: .elk,
-            ranking: 0,
+            ranking: 3,
             title: "Elk - 여행 환율 변환기",
             subTitle: nil,
             category: .finance,
@@ -383,7 +383,7 @@ struct App {
         ),
         App(
             iconImage: .taxnote,
-            ranking: 0,
+            ranking: 4,
             title: "Taxnote 부기 및 회계 앱",
             subTitle: "자영업자용 세금 환급을 위한 부기 및 회계 앱",
             category: .finance,
