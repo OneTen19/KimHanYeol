@@ -19,6 +19,7 @@ class PopularChartCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setUI()
         setStyle()
         setLayout()
@@ -105,11 +106,8 @@ class PopularChartCell: UITableViewCell {
         rankLabel.text = app.ranking.description
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle ?? app.category.rawValue
-        
-        // 샤라웃 투 킹지석
         downloadButton.setTitle(app.downloadState.title, for: .normal)
         downloadButton.setImage(app.downloadState.image, for: .normal)
-        
     }
 }
 

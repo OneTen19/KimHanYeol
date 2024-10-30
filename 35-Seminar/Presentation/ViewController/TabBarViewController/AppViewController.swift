@@ -56,7 +56,3 @@ class AppViewController: UIViewController {
     }
     
 }
-
-#Preview {
-    AppViewController()
-}

@@ -16,7 +16,7 @@ struct App {
     let downloadState: DownloadState
     let price: Int
     let backgroundImage: UIImage? // collectionView에 사용
-    let appInsidePrice: Bool
+    let inAppPrice: Bool
     
     // FreeApps Mock Data
     static let freeApps: [App] = [
@@ -29,7 +29,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .onetwo,
@@ -40,7 +40,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .naverpay,
@@ -51,7 +51,7 @@ struct App {
             downloadState: .update,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .kakaopay,
@@ -62,7 +62,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .kbpay,
@@ -73,7 +73,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .monimo,
@@ -84,7 +84,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .kbstarbank,
@@ -95,7 +95,7 @@ struct App {
             downloadState: .reDownload,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .travelwallet,
@@ -106,7 +106,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .namu,
@@ -117,7 +117,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .toss,
@@ -128,7 +128,7 @@ struct App {
             downloadState: .downloaded,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .kakaobank,
@@ -139,7 +139,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .solbank,
@@ -150,7 +150,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .nhbank,
@@ -161,7 +161,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .hanabank,
@@ -172,7 +172,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .kbank,
@@ -183,7 +183,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .v3,
@@ -194,7 +194,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .mobileTmoney,
@@ -205,7 +205,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .hyundaicard,
@@ -216,7 +216,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .solpay,
@@ -227,7 +227,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .hyundaidepartment,
@@ -238,7 +238,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         )
         
     ]
@@ -254,7 +254,7 @@ struct App {
             downloadState: .download,
             price: 14000,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .easymoneybook,
@@ -265,7 +265,7 @@ struct App {
             downloadState: .download,
             price: 8800,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .membershipwidget,
@@ -276,7 +276,7 @@ struct App {
             downloadState: .download,
             price: 4400,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .securitywidget,
@@ -287,7 +287,7 @@ struct App {
             downloadState: .download,
             price: 3300,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .bafinancialcalculator,
@@ -298,7 +298,7 @@ struct App {
             downloadState: .download,
             price: 4400,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .myanmarmarket,
@@ -309,7 +309,7 @@ struct App {
             downloadState: .download,
             price: 4400,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .costit,
@@ -320,7 +320,7 @@ struct App {
             downloadState: .download,
             price: 1100,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .baii,
@@ -331,7 +331,7 @@ struct App {
             downloadState: .download,
             price: 22000,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .easymoneybookclassic,
@@ -342,7 +342,7 @@ struct App {
             downloadState: .download,
             price: 8800,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         )
     ]
     
@@ -357,7 +357,7 @@ struct App {
             downloadState: .download,
             price: 6600,
             backgroundImage: .currenzybackground,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .fortunecity,
@@ -368,7 +368,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: .fortunecitybackground,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .elk,
@@ -379,7 +379,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: .elkbackground,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .taxnote,
@@ -390,7 +390,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: .taxnotebackground,
-            appInsidePrice: true
+            inAppPrice: true
         )
     ]
     
@@ -405,7 +405,7 @@ struct App {
             downloadState: .download,
             price: 29000,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .moneycoach,
@@ -416,7 +416,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .finances2,
@@ -427,7 +427,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .moneycontrol,
@@ -438,7 +438,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .ynab,
@@ -449,7 +449,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .splitwise,
@@ -460,7 +460,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .spendy,
@@ -471,7 +471,7 @@ struct App {
             downloadState: .download,
             price: 4400,
             backgroundImage: nil,
-            appInsidePrice: false
+            inAppPrice: false
         ),
         App(
             iconImage: .cashcounter,
@@ -482,7 +482,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         ),
         App(
             iconImage: .macaw,
@@ -493,7 +493,7 @@ struct App {
             downloadState: .download,
             price: 0,
             backgroundImage: nil,
-            appInsidePrice: true
+            inAppPrice: true
         )
         
     ]

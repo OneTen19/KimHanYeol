@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class PopularChartView: UIViewController {
+class PopularChartViewController: UIViewController {
     
     private let apps = App.freeApps
     
@@ -49,7 +49,7 @@ class PopularChartView: UIViewController {
     
 }
 
-extension PopularChartView: UITableViewDelegate, UITableViewDataSource {
+extension PopularChartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return apps.count
