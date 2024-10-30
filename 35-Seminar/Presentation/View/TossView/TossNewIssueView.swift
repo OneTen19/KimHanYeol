@@ -105,8 +105,6 @@ class TossNewIssueView: UIView {
         
     }
     
-    // 현재 뷰가 속한 뷰컨트롤러에 접근하기 위한 확장 메서드
-    // gpt의 힘으로 작성한 코드.. 이해가 되지 않는다..
      func viewController() -> UIViewController? {
          var nextResponder: UIResponder? = self
          while let responder = nextResponder {

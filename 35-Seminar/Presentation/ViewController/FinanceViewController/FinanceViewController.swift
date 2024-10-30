@@ -11,11 +11,6 @@ import SnapKit
 
 class FinanceViewController: UIViewController {
     
-    private let freeApps = App.freeApps
-    private let paidApps = App.paidApps
-    private let collectionViewApps = App.collectionViewApps
-    private let essentialApps = App.essentialApps
-    
     private let tableView = UITableView()
     
     override func viewDidLoad() {
@@ -30,6 +25,7 @@ class FinanceViewController: UIViewController {
         tableView.do {
             $0.delegate = self
             $0.dataSource = self
+            $0.register(HorizontalCollectionWithBackgroundImageView.self, forCellReuseIdentifier: HorizontalCollectionWithBackgroundImageView.cellIdentifier)
             $0.register(HorizontalCollectionView.self, forCellReuseIdentifier: HorizontalCollectionView.cellIdentifier)
             $0.separatorColor = .clear
         }
@@ -52,8 +48,7 @@ class FinanceViewController: UIViewController {
 extension FinanceViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return 4
-        return 1
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,47 +56,33 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: HorizontalCollectionView.cellIdentifier,
-            for: indexPath
-        ) as? HorizontalCollectionView else {
-            return UITableViewCell()
+        if indexPath.section == 0 {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HorizontalCollectionWithBackgroundImageView.cellIdentifier, for: indexPath) as? HorizontalCollectionWithBackgroundImageView else { return UITableViewCell() }
+            
+            cell.configure(with: App.collectionViewApps)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HorizontalCollectionView.cellIdentifier, for: indexPath) as? HorizontalCollectionView else { return UITableViewCell() }
+            
+            switch indexPath.section {
+            case 1:
+                cell.configure(with: App.essentialApps, index: indexPath.section)
+            case 2:
+                cell.configure(with: App.paidApps, index: indexPath.section)
+            case 3:
+                cell.configure(with: App.freeApps, index: indexPath.section)
+            default:
+                return cell
+            }
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            
+            return cell
         }
-        cell.configure(with: App.collectionViewApps)
-        return cell
         
-//        if indexPath.section == 0 {
-//            // CollectionView가 포함된 셀
-//            guard let cell = tableView.dequeueReusableCell(
-//                withIdentifier: HorizontalCollectionView.cellIdentifier,
-//                for: indexPath
-//            ) as? HorizontalCollectionView else {
-//                return UITableViewCell()
-//            }
-//            cell.configure(with: App.collectionViewApps)
-//            return cell
-//        } else {
-//            // 나머지 3개의 가로 TableView가 포함된 셀
-//            guard let cell = tableView.dequeueReusableCell(
-//                withIdentifier: HorizontalTableViewCell.cellIdentifier,
-//                for: indexPath
-//            ) as? HorizontalTableViewCell else {
-//                return UITableViewCell()
-//            }
-//            let appData: [App]
-//            switch indexPath.section {
-//            case 1:
-//                appData = App.freeApps
-//            case 2:
-//                appData = App.paidApps
-//            case 3:
-//                appData = App.essentialApps
-//            default:
-//                appData = []
-//            }
-//            cell.configure(with: appData)
-//            return cell
-//        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -110,6 +91,3 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-#Preview {
-    FinanceViewController()
-}

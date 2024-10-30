@@ -2,7 +2,7 @@
 //  HorizontalCollectionView.swift
 //  35-Seminar
 //
-//  Created by OneTen on 10/29/24.
+//  Created by OneTen on 10/30/24.
 //
 
 import UIKit
@@ -14,9 +14,12 @@ class HorizontalCollectionView: UITableViewCell {
     private let collectionView: UICollectionView
     private let flowLayout = UICollectionViewFlowLayout()
     private let itemSizeWidth = UIScreen.main.bounds.width
-    private let itemSizeHeight = UIScreen.main.bounds.height / 2
+    private let itemSizeHeight = UIScreen.main.bounds.height / 3
+    private let titleLabel = UILabel()
+    private let subTitleLabel = UILabel()
+    private let viewAllButton = UIButton()
     
-    private var apps: [App] = []
+    private var apps: [[App]] = []
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         flowLayout.scrollDirection = .horizontal
@@ -41,27 +44,74 @@ class HorizontalCollectionView: UITableViewCell {
             $0.dataSource = self
             $0.showsHorizontalScrollIndicator = false
         }
-    }
-    
-    private func setUI() {
-        contentView.addSubview(collectionView)
-    }
-    
-    private func setLayout() {
-        collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        
+        titleLabel.do {
+            $0.font = .systemFont(ofSize: 28, weight: .semibold)
+        }
+        
+        subTitleLabel.do {
+            $0.font = .systemFont(ofSize: 16, weight: .semibold)
+            $0.textColor = .gray
+        }
+        
+        viewAllButton.do {
+            $0.setTitle("모두 보기", for: .normal)
+            $0.setTitleColor(.tintColor, for: .normal)
         }
     }
     
-    func configure(with app: [App]) {
-        apps = app
+    private func setUI() {
+        contentView.addSubviews(titleLabel, subTitleLabel, collectionView, viewAllButton)
+    }
+    
+    private func setLayout() {
+        titleLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().offset(10)
+            $0.width.equalToSuperview().inset(20)
+        }
+        
+        subTitleLabel.snp.makeConstraints {
+            $0.leading.equalTo(titleLabel)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
+            $0.width.equalTo(titleLabel)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom)
+            $0.width.equalTo(itemSizeWidth)
+            $0.height.equalTo(itemSizeHeight)
+        }
+        
+        viewAllButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20)
+            $0.centerY.equalTo(titleLabel)
+        }
+    }
+    
+    func configure(with app: [App], index: Int) {
+        apps = stride(from: 0, to: app.count, by: 3).map {
+            Array(app[$0 ..< Swift.min($0 + 3, app.count)])
+        }
+        
+        if index == 1 {
+            titleLabel.text = "필수 금융앱"
+            subTitleLabel.text = "App Store 에디터가 직접 골랐습니다"
+        } else if index == 2 {
+            titleLabel.text = "유료순위"
+            subTitleLabel.text = ""
+        } else {
+            titleLabel.text = "무료순위"
+            subTitleLabel.text = ""
+        }
+        
     }
     
 }
 
 extension HorizontalCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return apps.count
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -71,8 +121,10 @@ extension HorizontalCollectionView: UICollectionViewDelegate, UICollectionViewDa
         
         let app = apps[indexPath.row]
         cell.configure(with: app)
+        
         return cell
     }
+    
     
 }
 

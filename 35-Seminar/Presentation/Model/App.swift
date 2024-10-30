@@ -32,12 +32,12 @@ struct App {
             inAppPrice: false
         ),
         App(
-            iconImage: .onetwo,
+            iconImage: .toss,
             ranking: 2,
-            title: "한투-한국투자증권,MTS,투자,증권,해외주식,주식",
-            subTitle: "한국투자:대방,공모주,펀드,연금,",
+            title: "토스",
+            subTitle: "금융이 쉬워진다",
             category: .finance,
-            downloadState: .download,
+            downloadState: .downloaded,
             price: 0,
             backgroundImage: nil,
             inAppPrice: false
@@ -120,12 +120,12 @@ struct App {
             inAppPrice: false
         ),
         App(
-            iconImage: .toss,
+            iconImage: .onetwo,
             ranking: 10,
-            title: "토스",
-            subTitle: "금융이 쉬워진다",
+            title: "한투-한국투자증권,MTS,투자,증권,해외주식,주식",
+            subTitle: "한국투자:대방,공모주,펀드,연금,",
             category: .finance,
-            downloadState: .downloaded,
+            downloadState: .download,
             price: 0,
             backgroundImage: nil,
             inAppPrice: false
