@@ -148,20 +148,26 @@ class HorizontalCollectionWithBackgroundImageCell: UICollectionViewCell {
     
     func configure(with app: App) {
         iconImageView.image = app.iconImage
+        headerTitleLabel.text = app.title
         titleLabel.text = app.title
         subTitleLabel.text = app.subTitle ?? app.category.rawValue
-        headerTitleLabel.text = app.title
-        headerSubTitleLabel.text = app.subTitle ?? app.category.rawValue
         appBackgroundImageView.image = app.backgroundImage
         downloadButton.setTitle(app.price == 0 ? app.downloadState.title : "₩\(app.price)", for: .normal)
         downloadButton.setImage(app.downloadState.image, for: .normal)
         inAppPriceLabel.text = app.inAppPrice ? "앱 내 구입" : ""
         
-        switch app.ranking {
-        case 1: headerTypeLabel.text = "추천"
-        case 2: headerTypeLabel.text = "새로운 경험"
-        case 3: headerTypeLabel.text = "새로운 앱"
-        default: headerTypeLabel.text = "추천"
+        if app.ranking == 1 {
+            headerTypeLabel.text = "추천"
+            headerSubTitleLabel.text = "빠르고 쉬운 환율 계산"
+        } else if app.ranking == 2 {
+            headerTypeLabel.text = "새로운 경험"
+            headerSubTitleLabel.text = "게임을 하듯 관리하는 가계부"
+        } else if app.ranking == 3 {
+            headerTypeLabel.text = "새로운 앱"
+            headerSubTitleLabel.text = "언제 어디서나 간편한 환율 체크"
+        } else {
+            headerTypeLabel.text = "추천"
+            headerSubTitleLabel.text = "간편한 장부 관리"
         }
     }
     
