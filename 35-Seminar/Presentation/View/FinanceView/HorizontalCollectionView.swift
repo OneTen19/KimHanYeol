@@ -122,7 +122,8 @@ class HorizontalCollectionView: UITableViewCell {
    @objc private func viewAllButtonTapped() {
        print("tapped")
        guard let viewController = viewController() else { return }
-       let nextViewController = TossViewController()
+       let nextViewController = PopularChartViewController()
+       nextViewController.navigationItem.backButtonTitle = "앱"
        viewController.navigationController?.pushViewController(nextViewController, animated: true)
    }
     

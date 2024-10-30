@@ -18,6 +18,8 @@ class FinanceViewController: UIViewController {
         setUI()
         setStyle()
         setLayout()
+        
+        self.navigationItem.title = "금융"
     }
     
     private func setStyle() {

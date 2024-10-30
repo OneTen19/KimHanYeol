@@ -12,15 +12,17 @@ import Then
 
 class AppViewController: UIViewController {
     
+    private var baseView = UIView()
+    private lazy var moveToFinanceButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
         setUI()
         setLayout()
+        
+        self.navigationItem.backButtonTitle = "앱"
     }
-    
-    private var baseView = UIView()
-    private lazy var moveToFinanceButton = UIButton()
     
     // UI 요소의 스타일을 설정
     func setStyle() {
@@ -29,8 +31,8 @@ class AppViewController: UIViewController {
             $0.titleLabel?.font = .systemFont(ofSize: 64, weight: .semibold)
             $0.backgroundColor = .tintColor
             $0.layer.cornerRadius = 20
+            $0.addTarget(self, action: #selector(moveToFinanceButtonTapped), for: .touchUpInside)
         }
-        moveToFinanceButton.addTarget(self, action: #selector(moveToFinanceButtonTapped), for: .touchUpInside)
     }
     
     // UI 구성 요소를 추가

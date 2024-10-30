@@ -35,6 +35,8 @@ class PopularChartCell: UITableViewCell {
             $0.contentMode = .scaleAspectFit
             $0.layer.cornerRadius = 10
             $0.clipsToBounds = true
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
         }
         
         rankLabel.do {

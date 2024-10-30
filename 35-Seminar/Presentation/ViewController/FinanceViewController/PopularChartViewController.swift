@@ -61,6 +61,8 @@ extension PopularChartViewController: UITableViewDelegate, UITableViewDataSource
         }
         let app = apps[indexPath.row]
         cell.configure(with: app)
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
         return cell
     }
     

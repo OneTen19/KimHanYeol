@@ -6,47 +6,61 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class TossViewController: UIViewController{
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUI()
-        scrollView.delegate = self
-    }
-    
-    private var navigationBar = UINavigationBar()
-    
     private var scrollView = UIScrollView()
     private var contentView = UIView()
     private var headerView = TossHeaderView()
-    
     private var infoView = UIView()
     private var firstInfoView = TossFirstInfoView()
     private var secondInfoView = TossSecondInfoView()
     private var thirdInfoView = TossThirdInfoView()
-    
     private var newIssueView = TossNewIssueView()
     private var previewView = TossPreviewView()
     private var developerView = TossDeveloperView()
-    
     private var reviewView = UIView()
     private var firstReviewView = TossFirstReviewView()
     private var secondReviewView = TossSecondReviewView()
+    private var tossImageView = UIImageView()
+    private var openButton = UIButton()
+    private var navigationHeaderView = UIView()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setUI()
+        setStyle()
+        setLayout()
+    }
+    
+    private func setStyle() {
+        tossImageView.do {
+            $0.contentMode = .scaleAspectFit
+            $0.image = .tossApp
+            $0.layer.cornerRadius = 10
+            $0.clipsToBounds = true
+        }
+        
+        openButton.do {
+            $0.setTitle("열기", for: .normal)
+            $0.backgroundColor = .tintColor
+            $0.setTitleColor(.white, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+            $0.layer.cornerRadius = 20
+        }
+    }
     
     private func setUI() {
-        self.view.addSubview(navigationBar)
-        self.view.addSubview(scrollView)
+        self.view.addSubviews(scrollView)
         scrollView.addSubview(contentView)
-        
-        [headerView, infoView, newIssueView, previewView, developerView, reviewView].forEach { contentView.addSubview($0) }
-        [firstInfoView, secondInfoView, thirdInfoView].forEach { infoView.addSubview($0) }
-        [firstReviewView, secondReviewView].forEach { reviewView.addSubview($0) }
-        
-        setUINavigationBar(tossImageView: tossImageView, openButton: openButton)
-        
+        contentView.addSubviews(headerView, infoView, newIssueView, previewView, developerView, reviewView)
+        infoView.addSubviews(firstInfoView, secondInfoView, thirdInfoView)
+        reviewView.addSubviews(firstReviewView, secondReviewView)
+    }
+    
+    private func setLayout() {
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -140,76 +154,7 @@ class TossViewController: UIViewController{
             $0.width.equalTo(headerView)
         }
         
-        
     }
     
-    
-    private let tossImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = .tossApp
-        imageView.layer.cornerRadius = 10
-        imageView.clipsToBounds = true
-        
-        return imageView
-    }()
-    
-    
-    private var openButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("열기", for: .normal)
-        button.backgroundColor = .tintColor
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
-        button.layer.cornerRadius = 20
-        return button
-    }()
-    
-}
 
-extension TossViewController: UIScrollViewDelegate {
-    
-    func setUINavigationBar(tossImageView: UIImageView, openButton: UIButton) {
-        // Navigation Bar에 Custom TitleView로 이미지 넣기
-        let titleView = UIView()
-        titleView.addSubview(tossImageView)
-        titleView.addSubview(openButton)
-        
-        tossImageView.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.centerX.equalToSuperview().offset(-15)
-            $0.width.height.equalTo(44)
-        }
-        
-        openButton.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview()
-            $0.width.equalTo(80)
-        }
-        
-        navigationItem.titleView = titleView
-        
-        titleView.snp.makeConstraints {
-            $0.height.equalTo(44)
-            $0.width.equalTo(1000)
-        }
-        
-    }
-    
-    // 스크롤하면 navigationBar 보이게
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        
-        let imageSizeAlpha = min(1, offsetY / 100)
-        let buttonAlpha = min(1, offsetY / 100)
-        
-        tossImageView.alpha = imageSizeAlpha
-        openButton.alpha = buttonAlpha
-    }
-    
-    
 }
-
-//#Preview {
-//    TossView()
-//}
