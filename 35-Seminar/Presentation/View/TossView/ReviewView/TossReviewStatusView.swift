@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class TossFirstReviewView: UIView {
+class TossReviewStatusView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

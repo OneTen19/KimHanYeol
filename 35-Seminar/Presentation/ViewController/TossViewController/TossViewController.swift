@@ -18,11 +18,11 @@ class TossViewController: UIViewController{
     private var secondInfoView = TossSecondInfoView()
     private var thirdInfoView = TossThirdInfoView()
     private var newIssueView = TossNewIssueView()
-    private var previewView = TossPreviewView() // 콜렉션뷰로 마이그레이션
+    private var previewView = TossPreviewView()
     private var developerView = TossDeveloperView()
     private var reviewView = UIView()
-    private var firstReviewView = TossFirstReviewView()
-    private var secondReviewView = TossSecondReviewView() // 콜렉션뷰로 마이그레이션
+    private var reviewStatusView = TossReviewStatusView()
+    private var reviewListCollectionView = TossReviewListCollectionView()
     private var tossImageView = UIImageView()
     private var openButton = UIButton()
     private var navigationHeaderView = UIView()
@@ -57,7 +57,7 @@ class TossViewController: UIViewController{
         scrollView.addSubview(contentView)
         contentView.addSubviews(headerView, infoView, newIssueView, previewView, developerView, reviewView)
         infoView.addSubviews(firstInfoView, secondInfoView, thirdInfoView)
-        reviewView.addSubviews(firstReviewView, secondReviewView)
+        reviewView.addSubviews(reviewStatusView, reviewListCollectionView)
     }
     
     private func setLayout() {
@@ -139,16 +139,16 @@ class TossViewController: UIViewController{
             $0.bottom.equalTo(contentView.snp.bottom).inset(20)
         }
         
-        firstReviewView.snp.makeConstraints {
+        reviewStatusView.snp.makeConstraints {
             $0.leading.equalTo(reviewView)
             $0.top.equalTo(reviewView)
             $0.height.equalTo(120)
             $0.width.equalTo(headerView)
         }
         
-        secondReviewView.snp.makeConstraints {
-            $0.leading.equalTo(firstReviewView)
-            $0.top.equalTo(firstReviewView.snp.bottom).offset(20)
+        reviewListCollectionView.snp.makeConstraints {
+            $0.leading.equalTo(reviewStatusView)
+            $0.top.equalTo(reviewStatusView.snp.bottom).offset(20)
             $0.bottom.equalTo(reviewView.snp.bottom)
             $0.width.equalTo(headerView)
         }
