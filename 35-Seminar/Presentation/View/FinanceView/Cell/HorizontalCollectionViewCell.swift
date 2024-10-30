@@ -48,6 +48,17 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         apps = app
     }
     
+    func viewController() -> UIViewController? {
+        var nextResponder: UIResponder? = self
+        while let responder = nextResponder {
+            if let vc = responder as? UIViewController {
+                return vc
+            }
+            nextResponder = responder.next
+        }
+        return nil
+    }
+    
 }
 
 extension HorizontalCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
@@ -67,18 +78,18 @@ extension HorizontalCollectionViewCell: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let app = apps[indexPath.row]
-//        
-//        if app.title == "토스" {
-//            let nextViewController = TossViewController()
-//            viewController.navigationController?.pushViewController(nextViewController, animated: true)
-//        }
-//        
-//    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let app = apps[indexPath.row]
+        
+        if app.title == "토스" {
+            guard let viewController = viewController() else { return }
+            let nextViewController = TossViewController()
+            viewController.navigationController?.pushViewController(nextViewController, animated: true)
+        }
     }
     
     

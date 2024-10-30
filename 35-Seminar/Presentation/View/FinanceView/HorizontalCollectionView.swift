@@ -57,6 +57,7 @@ class HorizontalCollectionView: UITableViewCell {
         viewAllButton.do {
             $0.setTitle("모두 보기", for: .normal)
             $0.setTitleColor(.tintColor, for: .normal)
+            $0.addTarget(self, action: #selector(viewAllButtonTapped), for: .touchUpInside)
         }
     }
     
@@ -106,6 +107,24 @@ class HorizontalCollectionView: UITableViewCell {
         }
         
     }
+    
+    func viewController() -> UIViewController? {
+        var nextResponder: UIResponder? = self
+        while let responder = nextResponder {
+            if let vc = responder as? UIViewController {
+                return vc
+            }
+            nextResponder = responder.next
+        }
+        return nil
+    }
+   
+   @objc private func viewAllButtonTapped() {
+       print("tapped")
+       guard let viewController = viewController() else { return }
+       let nextViewController = TossViewController()
+       viewController.navigationController?.pushViewController(nextViewController, animated: true)
+   }
     
 }
 
