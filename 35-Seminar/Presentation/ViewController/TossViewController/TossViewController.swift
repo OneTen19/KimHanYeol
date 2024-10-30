@@ -18,11 +18,11 @@ class TossViewController: UIViewController{
     private var secondInfoView = TossSecondInfoView()
     private var thirdInfoView = TossThirdInfoView()
     private var newIssueView = TossNewIssueView()
-    private var previewView = TossPreviewView()
+    private var previewView = TossPreviewView() // 콜렉션뷰로 마이그레이션
     private var developerView = TossDeveloperView()
     private var reviewView = UIView()
     private var firstReviewView = TossFirstReviewView()
-    private var secondReviewView = TossSecondReviewView()
+    private var secondReviewView = TossSecondReviewView() // 콜렉션뷰로 마이그레이션
     private var tossImageView = UIImageView()
     private var openButton = UIButton()
     private var navigationHeaderView = UIView()
@@ -118,14 +118,13 @@ class TossViewController: UIViewController{
             $0.leading.equalTo(newIssueView)
             $0.trailing.equalTo(newIssueView)
             $0.top.equalTo(newIssueView.snp.bottom)
-            $0.width.equalTo(headerView)
             $0.height.equalTo(700)
         }
         
         developerView.snp.makeConstraints {
             $0.leading.equalTo(previewView)
             $0.trailing.equalTo(previewView)
-            $0.top.equalTo(previewView.snp.bottom)
+            $0.top.equalTo(previewView.snp.bottom).offset(20)
             $0.height.equalTo(50)
         }
         

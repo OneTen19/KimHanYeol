@@ -10,89 +10,112 @@ import SnapKit
 
 class TossPreviewView: UIView {
     
+    private var previewTitleLabel = UILabel()
+    private var descriptionLabel = UILabel()
+    private var subDescriptionLabel = UILabel()
+    private var extraButton = UIButton()
+    private var previewImageCollectionView: UICollectionView
+    private let flowLayout = UICollectionViewFlowLayout()
+    private let itemSizeWidth = UIScreen.main.bounds.width / 2 + 40
+    private let itemSizeHeight = 650
+    
+    private var images: [UIImage] = [.tosspreview01, .tosspreview02, .tosspreview03, .tosspreview04, .tosspreview05]
+    
     override init(frame: CGRect) {
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = .init(width: itemSizeWidth, height: 650)
+        previewImageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        
         super.init(frame: frame)
         setUI()
+        setStyle()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var firstLabel: UILabel = {
-        let label = UILabel()
-        label.text = "미리보기"
-        label.font = .systemFont(ofSize: 24, weight: .semibold)
-
-        return label
-    }()
-    
-    private var secondLabel: UILabel = {
-        let label = UILabel()
-        label.text = "토스뱅크, 토스증권 서비스를 이용하시려면 토스 앱 설치가 필요합니다."
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
-        label.numberOfLines = 2
+    private func setStyle() {
+        previewTitleLabel.do {
+            $0.text = "미리보기"
+            $0.font = .systemFont(ofSize: 24, weight: .semibold)
+        }
         
-        return label
-    }()
-    
-    private var thirdLabel: UILabel = {
-        let label = UILabel()
-        label.text = "- 내 금융 현황을 한눈에, 홈*소비"
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
-
-        return label
-    }()
-    
-    private var extraButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("더 보기", for: .normal)
-        button.setTitleColor(.tintColor, for: .normal)
+        descriptionLabel.do {
+            $0.text = "토스뱅크, 토스증권 서비스를 이용하시려면 토스 앱 설치가 필요합니다."
+            $0.font = .systemFont(ofSize: 16, weight: .semibold)
+            $0.numberOfLines = 2
+        }
         
-        return button
-    }()
-    
-    private var previewImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "PreviewImage")
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 20
-        imageView.clipsToBounds = true
+        subDescriptionLabel.do {
+            $0.text = "- 내 금융 현황을 한눈에, 홈*소비"
+            $0.font = .systemFont(ofSize: 16, weight: .semibold)
+        }
         
-        return imageView
-    }()
+        extraButton.do {
+            $0.setTitle("더 보기", for: .normal)
+            $0.setTitleColor(.tintColor, for: .normal)
+        }
+        
+        previewImageCollectionView.do {
+            $0.register(TossPreviewImageCollectionViewCell.self, forCellWithReuseIdentifier: TossPreviewImageCollectionViewCell.cellIdentifier)
+            $0.delegate = self
+            $0.dataSource = self
+            $0.showsHorizontalScrollIndicator = false
+        }
+    }
     
     private func setUI() {
-        [firstLabel, secondLabel, thirdLabel, extraButton, previewImageView].forEach { self.addSubview($0) }
-        
-        firstLabel.snp.makeConstraints {
+        self.addSubviews(previewTitleLabel, descriptionLabel, subDescriptionLabel, extraButton, previewImageCollectionView)
+    }
+    
+    private func setLayout() {
+        previewTitleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalToSuperview()
         }
         
-        previewImageView.snp.makeConstraints {
-            $0.leading.equalTo(firstLabel)
-            $0.top.equalTo(firstLabel.snp.bottom).offset(10)
-            $0.width.equalTo(300)
+        previewImageCollectionView.snp.makeConstraints {
+            $0.leading.equalTo(previewTitleLabel)
+            $0.top.equalTo(previewTitleLabel.snp.bottom).offset(10)
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.height.equalTo(600)
         }
         
-        secondLabel.snp.makeConstraints {
-            $0.leading.equalTo(previewImageView)
+        descriptionLabel.snp.makeConstraints {
+            $0.leading.equalTo(previewTitleLabel)
             $0.width.equalToSuperview()
-            $0.top.equalTo(previewImageView.snp.bottom).offset(20)
+            $0.top.equalTo(previewImageCollectionView.snp.bottom).offset(10)
         }
         
-        thirdLabel.snp.makeConstraints {
-            $0.leading.equalTo(secondLabel)
-            $0.top.equalTo(secondLabel.snp.bottom).offset(10)
+        subDescriptionLabel.snp.makeConstraints {
+            $0.leading.equalTo(descriptionLabel)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(10)
         }
         
         extraButton.snp.makeConstraints {
             $0.trailing.equalToSuperview()
-            $0.top.equalTo(secondLabel.snp.bottom)
+            $0.centerY.equalTo(subDescriptionLabel)
+        }
+    }
+    
+}
+
+extension TossPreviewView: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TossPreviewImageCollectionViewCell.cellIdentifier, for: indexPath) as? TossPreviewImageCollectionViewCell else {
+            return UICollectionViewCell()
         }
         
+        let image = images[indexPath.row]
+        cell.configure(with: image)
+        
+        return cell
     }
     
 }
