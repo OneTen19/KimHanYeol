@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class TossPreviewView: UIView {
-    
     private var previewTitleLabel = UILabel()
     private var descriptionLabel = UILabel()
     private var subDescriptionLabel = UILabel()
