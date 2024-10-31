@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "securitywidget.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "securitywidget.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

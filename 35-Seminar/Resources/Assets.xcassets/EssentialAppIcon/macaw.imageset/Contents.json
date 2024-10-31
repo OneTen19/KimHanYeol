@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "macaw.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "macaw.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

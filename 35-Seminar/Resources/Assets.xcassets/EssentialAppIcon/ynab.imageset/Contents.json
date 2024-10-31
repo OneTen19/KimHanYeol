@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "ynab.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ynab.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

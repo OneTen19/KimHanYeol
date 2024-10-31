@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "costit.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "costit.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

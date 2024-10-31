@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "cashcounter.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "cashcounter.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
