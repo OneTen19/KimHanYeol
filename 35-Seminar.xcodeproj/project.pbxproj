@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C14AB892CCE918E004016BF /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 6C14AB882CCE918E004016BF /* Then */; };
 		6C391A3A2CBA46CB000B72BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6C391A392CBA46CB000B72BD /* SnapKit */; };
+		6CB52F442CD5F10A00C8D130 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6CB52F432CD5F10A00C8D130 /* Alamofire */; };
 		6CFA97D02CB1017F004B6A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA97CF2CB1017F004B6A40 /* AppDelegate.swift */; };
 		6CFA97D22CB1017F004B6A40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA97D12CB1017F004B6A40 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CB52F442CD5F10A00C8D130 /* Alamofire in Frameworks */,
 				6C391A3A2CBA46CB000B72BD /* SnapKit in Frameworks */,
 				6C14AB892CCE918E004016BF /* Then in Frameworks */,
 			);
@@ -119,6 +121,7 @@
 			packageProductDependencies = (
 				6C391A392CBA46CB000B72BD /* SnapKit */,
 				6C14AB882CCE918E004016BF /* Then */,
+				6CB52F432CD5F10A00C8D130 /* Alamofire */,
 			);
 			productName = "35-Seminar";
 			productReference = 6CFA97CC2CB1017F004B6A40 /* 35-Seminar.app */;
@@ -150,6 +153,7 @@
 			packageReferences = (
 				6C391A382CBA46CB000B72BD /* XCRemoteSwiftPackageReference "SnapKit" */,
 				6C14AB872CCE918E004016BF /* XCRemoteSwiftPackageReference "Then" */,
+				6CB52F422CD5F10A00C8D130 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 56;
 			productRefGroup = 6CFA97CD2CB1017F004B6A40 /* Products */;
@@ -397,6 +401,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		6CB52F422CD5F10A00C8D130 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -409,6 +421,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6C391A382CBA46CB000B72BD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		6CB52F432CD5F10A00C8D130 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CB52F422CD5F10A00C8D130 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
