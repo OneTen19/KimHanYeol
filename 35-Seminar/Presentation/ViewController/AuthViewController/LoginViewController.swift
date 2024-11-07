@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
             $0.borderStyle = .bezel
             $0.configureDefaultSettings()
             $0.addLeftPadding()
+            $0.delegate = self
         }
         
         userPassword.do {
@@ -48,6 +49,7 @@ class LoginViewController: UIViewController {
             $0.borderStyle = .bezel
             $0.configureDefaultSettings()
             $0.addLeftPadding()
+            $0.delegate = self
         }
         
         resultLabel.do {
@@ -124,11 +126,10 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 
-                var text: String
+                var text = ""
                 switch result {
                 case .success:
                     self.present(MainTabBarController(), animated: false)
-                    text = "로그인 성공했어요."
                 case let .failure(error):
                     text = error.errorMessage
                 }
@@ -143,4 +144,18 @@ class LoginViewController: UIViewController {
         self.present(nextViewController, animated: true)
     }
     
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // 백스페이스 처리
+        if let char = string.cString(using: String.Encoding.utf8) {
+            let isBackSpace = strcmp(char, "\\b")
+            if isBackSpace == -92 {
+                return true
+            }
+        }
+        guard textField.text!.count < 8 else { return false } // 8글자로 제한
+        return true
+    }
 }

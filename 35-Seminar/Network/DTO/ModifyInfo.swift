@@ -11,7 +11,3 @@ struct ModifyInfoRequest: Codable {
   let hobby: String
   let password: String
 }
-
-struct ModifyInfoFailed: Codable {
-    let code: String
-}

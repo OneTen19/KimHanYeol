@@ -10,9 +10,7 @@ import SnapKit
 import Then
 
 class ServerViewController: UIViewController {
-    var myHobby: String = "Test Hobby"
-    var searchUserId: String = ""
-    var searchUserHobby: String = "Test Hobby"
+    let userService = UserService()
     
     private var baseView = UIView()
     private let userImageView = UIImageView()
@@ -23,6 +21,23 @@ class ServerViewController: UIViewController {
     private let searchUserHobbyTextLabel = UILabel()
     private let searchButton = UIButton()
     private let logOutButton = UIButton()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        DispatchQueue.main.async {
+            self.userService.myHobby { [weak self] result in
+                guard let self = self else { return }
+                
+                switch result {
+                case let .success(hobby):
+                    myHobbyLabel.text = hobby
+                case let .failure(error):
+                    myHobbyLabel.text = "\(error.errorMessage)"
+                }
+            }
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +56,6 @@ class ServerViewController: UIViewController {
         }
 
         myHobbyLabel.do {
-            $0.text = myHobby
             $0.font = .systemFont(ofSize: 28, weight: .semibold)
         }
         
@@ -69,8 +83,8 @@ class ServerViewController: UIViewController {
         }
         
         searchUserHobbyTextLabel.do {
-            $0.text = searchUserHobby
             $0.font = .systemFont(ofSize: 28, weight: .semibold)
+            $0.textColor = .red
         }
         
         searchButton.do {
@@ -153,14 +167,33 @@ class ServerViewController: UIViewController {
     }
     
     @objc private func modifyButtonTapped() {
-        
+        let nextViewController = ModifyInfoViewController()
+        nextViewController.modalPresentationStyle = .fullScreen // 풀스크린으로 화면전환해야 dismiss시에 화면 갱신됨
+        self.present(nextViewController, animated: true)
     }
     
     @objc private func searchButtonTapped() {
+        guard let num = Int(searchUserTextField.text ?? "0")
+        else { return }
         
+        DispatchQueue.main.async {
+            self.userService.searchHobby(num: num) { [weak self] result in
+                guard let self = self else { return }
+                
+                switch result {
+                case let .success(hobby):
+                    searchUserHobbyTextLabel.text = hobby
+                case let .failure(error):
+                    searchUserHobbyTextLabel.text = error.errorMessage
+                }
+            }
+        }
     }
     
     @objc private func logOutButtonTapped() {
+        UserDefaults.standard.removeObject(forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "hobby")
+        UserDefaults.standard.removeObject(forKey: "name")
         self.dismiss(animated: false)
     }
 

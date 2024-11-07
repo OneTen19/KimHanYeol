@@ -39,6 +39,7 @@ class SignUpViewController: UIViewController {
             $0.borderStyle = .bezel
             $0.configureDefaultSettings()
             $0.addLeftPadding()
+            $0.delegate = self
         }
         
         userPassword.do {
@@ -55,6 +56,7 @@ class SignUpViewController: UIViewController {
             $0.borderStyle = .bezel
             $0.configureDefaultSettings()
             $0.addLeftPadding()
+            $0.delegate = self
         }
         
         resultLabel.do {
@@ -139,6 +141,19 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-    
-    
+        
+}
+
+extension SignUpViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // 백스페이스 처리
+        if let char = string.cString(using: String.Encoding.utf8) {
+            let isBackSpace = strcmp(char, "\\b")
+            if isBackSpace == -92 {
+                return true
+            }
+        }
+        guard textField.text!.count < 8 else { return false } // 8글자로 제한
+        return true
+    }
 }

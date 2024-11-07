@@ -12,12 +12,3 @@ struct SignUpRequest: Codable {
   let password: String
   let hobby: String
 }
-
-struct SignUpSuccess: Codable {
-    let result: SignUpFailed?
-    let no: Int
-}
-
-struct SignUpFailed: Codable {
-    let code: String
-}

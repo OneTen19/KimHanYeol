@@ -7,16 +7,15 @@
 
 import Foundation
 
-struct LogInRequest: Codable {
+struct LogInRequest: Encodable {
   let username: String
   let password: String
 }
 
-struct LogInSuccess: Codable {
-    let result: LogInFailed?
-    let token: Int
-}
-
-struct LogInFailed: Codable {
-    let code: String
+struct LoginResponse: Decodable {
+    let result: Token
+    
+    struct Token: Decodable {
+        let token : String
+    }
 }
