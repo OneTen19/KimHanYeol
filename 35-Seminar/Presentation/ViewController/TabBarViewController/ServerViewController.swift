@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SearchViewController: UIViewController {
+class ServerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
     private var baseView = UIView()
     
     private var label = UILabel().then {
-        $0.text = "검색 화면"
+        $0.text = "서버 화면"
         $0.font = .systemFont(ofSize: 64, weight: .semibold)
     }
     

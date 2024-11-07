@@ -14,7 +14,7 @@ class MainTabBarController: UITabBarController {
     let gameVC = UINavigationController(rootViewController: GameViewController())
     let appVC = UINavigationController(rootViewController: AppViewController())
     let arcadeVC = UINavigationController(rootViewController: ArcadeViewController())
-    let searchVC = UINavigationController(rootViewController: SearchViewController())
+    let searchVC = UINavigationController(rootViewController: ServerViewController())
     
     override func viewDidLoad() {
         super.viewDidLoad()
