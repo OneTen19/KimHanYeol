@@ -17,6 +17,7 @@ extension UITextField {
         self.clearsOnBeginEditing = false       // 편집 시 기존 텍스트필드값 초기화 안되게끔
     }
     
+    // 왼쪽 패딩
     func addLeftPadding() {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
         self.leftView = paddingView

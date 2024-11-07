@@ -23,6 +23,9 @@ class MainTabBarController: UITabBarController {
     }
     
     func setStyle() {
+        self.setViewControllers([self.todayVC, self.gameVC, self.appVC, self.arcadeVC, self.searchVC], animated: false)
+        self.modalPresentationStyle = .fullScreen
+        self.selectedIndex = 2
         
         // 탭 바 아이템 설정
         todayVC.tabBarItem = UITabBarItem(title: "투데이", image: UIImage(systemName: "doc.text.image"), tag: 0)

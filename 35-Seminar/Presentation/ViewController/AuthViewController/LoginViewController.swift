@@ -123,6 +123,7 @@ class LoginViewController: UIViewController {
                 var text: String
                 switch result {
                 case .success:
+                    self.present(MainTabBarController(), animated: false)
                     text = "로그인 성공했어요."
                 case let .failure(error):
                     text = error.errorMessage
@@ -130,6 +131,7 @@ class LoginViewController: UIViewController {
                 self.resultLabel.text = text
             }
         }
+        
     }
     
     @objc private func signUpButtonTapped() {
