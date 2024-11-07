@@ -11,6 +11,7 @@ import SnapKit
 class SignUpViewController: UIViewController {
     private let userService = UserService()
     
+    private let SignUpMessage = UILabel()
     private var userId = UITextField()
     private var userPassword = UITextField()
     private var myHobby = UITextField()
@@ -27,6 +28,11 @@ class SignUpViewController: UIViewController {
     }
     
     func setStyle() {
+        SignUpMessage.do {
+            $0.text = "Sign Up"
+            $0.font = .systemFont(ofSize: 48)
+        }
+        
         userId.do {
             $0.placeholder = "ID"
             $0.font = .systemFont(ofSize: 32)
@@ -61,15 +67,22 @@ class SignUpViewController: UIViewController {
             $0.titleLabel?.font = .systemFont(ofSize: 28)
             $0.backgroundColor = .tintColor
             $0.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+            $0.layer.cornerRadius = 10
+            $0.clipsToBounds = true
         }
         
     }
     
     func setUI() {
-        self.view.addSubviews(userId, userPassword, myHobby, resultLabel, signUpButton)
+        self.view.addSubviews(SignUpMessage, userId, userPassword, myHobby, resultLabel, signUpButton)
     }
     
     func setLayout() {
+        SignUpMessage.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-200)
+        }
+        
         userId.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.width.equalTo(300)
@@ -117,6 +130,7 @@ class SignUpViewController: UIViewController {
                 var text: String
                 switch result {
                 case .success:
+                    self.dismiss(animated: true)
                     text = "회원 등록 성공했어요."
                 case let .failure(error):
                     text = error.errorMessage

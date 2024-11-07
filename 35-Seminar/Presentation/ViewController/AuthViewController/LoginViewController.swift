@@ -60,6 +60,8 @@ class LoginViewController: UIViewController {
             $0.titleLabel?.font = .systemFont(ofSize: 28)
             $0.backgroundColor = .tintColor
             $0.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+            $0.layer.cornerRadius = 10
+            $0.clipsToBounds = true
         }
         
         signUpButton.do {
@@ -67,6 +69,8 @@ class LoginViewController: UIViewController {
             $0.titleLabel?.font = .systemFont(ofSize: 28)
             $0.backgroundColor = .gray
             $0.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+            $0.layer.cornerRadius = 10
+            $0.clipsToBounds = true
         }
         
     }
@@ -136,7 +140,7 @@ class LoginViewController: UIViewController {
     
     @objc private func signUpButtonTapped() {
         let nextViewController = SignUpViewController()
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        self.present(nextViewController, animated: true)
     }
     
 }
