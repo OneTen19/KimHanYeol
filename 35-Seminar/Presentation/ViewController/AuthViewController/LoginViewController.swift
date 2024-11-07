@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     private var loginImageView = UIImageView()
     private var userId = UITextField()
     private var userPassword = UITextField()
+    private var resultLabel = UILabel()
     private lazy var loginButton = UIButton()
     private lazy var signUpButton = UIButton()
     
@@ -37,12 +38,21 @@ class LoginViewController: UIViewController {
             $0.placeholder = "ID"
             $0.font = .systemFont(ofSize: 32)
             $0.borderStyle = .bezel
+            $0.configureDefaultSettings()
+            $0.addLeftPadding()
         }
         
         userPassword.do {
             $0.placeholder = "Password"
             $0.font = .systemFont(ofSize: 32)
             $0.borderStyle = .bezel
+            $0.configureDefaultSettings()
+            $0.addLeftPadding()
+        }
+        
+        resultLabel.do {
+            $0.textColor = .red
+            $0.font = .systemFont(ofSize: 16, weight: .semibold)
         }
         
         loginButton.do {
@@ -62,7 +72,7 @@ class LoginViewController: UIViewController {
     }
     
     func setUI() {
-        self.view.addSubviews(loginImageView, userId, userPassword, loginButton, signUpButton)
+        self.view.addSubviews(loginImageView, userId, userPassword, resultLabel, loginButton, signUpButton)
     }
     
     func setLayout() {
@@ -83,9 +93,14 @@ class LoginViewController: UIViewController {
             $0.width.equalTo(300)
         }
         
+        resultLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(userPassword.snp.bottom).offset(20)
+        }
+        
         loginButton.snp.makeConstraints {
             $0.leading.equalTo(userPassword)
-            $0.top.equalTo(userPassword.snp.bottom).offset(20)
+            $0.top.equalTo(userPassword.snp.bottom).offset(50)
             $0.width.equalTo(300)
         }
         
@@ -98,7 +113,23 @@ class LoginViewController: UIViewController {
     }
     
     @objc func loginButtonTapped() {
+        guard let username = userId.text,
+              let password = userPassword.text else { return }
         
+        userService.logIn(username: username, password: password) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                
+                var text: String
+                switch result {
+                case .success:
+                    text = "로그인 성공했어요."
+                case let .failure(error):
+                    text = error.errorMessage
+                }
+                self.resultLabel.text = text
+            }
+        }
     }
     
     @objc private func signUpButtonTapped() {
