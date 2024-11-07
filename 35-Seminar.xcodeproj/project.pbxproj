@@ -10,17 +10,12 @@
 		6C14AB892CCE918E004016BF /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 6C14AB882CCE918E004016BF /* Then */; };
 		6C391A3A2CBA46CB000B72BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6C391A392CBA46CB000B72BD /* SnapKit */; };
 		6CB52F442CD5F10A00C8D130 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6CB52F432CD5F10A00C8D130 /* Alamofire */; };
-		6CB52F482CD5F28E00C8D130 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6CB52F472CD5F28E00C8D130 /* Config.xcconfig */; };
-		6CB52F4A2CD5F38C00C8D130 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB52F492CD5F38C00C8D130 /* Environment.swift */; };
-		6CB52F4C2CD5F3DD00C8D130 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB52F4B2CD5F3DD00C8D130 /* NetworkError.swift */; };
 		6CFA97D02CB1017F004B6A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA97CF2CB1017F004B6A40 /* AppDelegate.swift */; };
 		6CFA97D22CB1017F004B6A40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA97D12CB1017F004B6A40 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6CB52F472CD5F28E00C8D130 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		6CB52F492CD5F38C00C8D130 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		6CB52F4B2CD5F3DD00C8D130 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		6CFA97CC2CB1017F004B6A40 /* 35-Seminar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "35-Seminar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CFA97CF2CB1017F004B6A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CFA97D12CB1017F004B6A40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +26,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				/Localized/LaunchScreen.storyboard,
+				Config.xcconfig,
 				Info.plist,
 			);
 			target = 6CFA97CB2CB1017F004B6A40 /* 35-Seminar */;
@@ -48,9 +44,10 @@
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		6C14AB6A2CCE89E0004016BF /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		6C14AB732CCE8B2B004016BF /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (6C14AB742CCE8B78004016BF /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 6C14AB752CCE8B78004016BF /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
 		6C14AB762CCE8C7B004016BF /* Presentation */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Presentation; sourceTree = "<group>"; };
+		6C341EA02CDC8E3B003DA5FC /* Network */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Network; sourceTree = "<group>"; };
+		6C341EAB2CDC8E50003DA5FC /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +76,6 @@
 		6CFA97C32CB1017F004B6A40 = {
 			isa = PBXGroup;
 			children = (
-				6CB52F4B2CD5F3DD00C8D130 /* NetworkError.swift */,
 				6CFA97CE2CB1017F004B6A40 /* 35-Seminar */,
 				6CFA97CD2CB1017F004B6A40 /* Products */,
 			);
@@ -96,12 +92,11 @@
 		6CFA97CE2CB1017F004B6A40 /* 35-Seminar */ = {
 			isa = PBXGroup;
 			children = (
-				6C14AB6A2CCE89E0004016BF /* Extensions */,
+				6C341EAB2CDC8E50003DA5FC /* Extensions */,
 				6C14AB732CCE8B2B004016BF /* Resources */,
 				6C2BE8712CBD3FE800428D4D /* Delegate */,
 				6C14AB762CCE8C7B004016BF /* Presentation */,
-				6CB52F472CD5F28E00C8D130 /* Config.xcconfig */,
-				6CB52F492CD5F38C00C8D130 /* Environment.swift */,
+				6C341EA02CDC8E3B003DA5FC /* Network */,
 			);
 			path = "35-Seminar";
 			sourceTree = "<group>";
@@ -122,9 +117,10 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				6C14AB6A2CCE89E0004016BF /* Extensions */,
 				6C14AB732CCE8B2B004016BF /* Resources */,
 				6C14AB762CCE8C7B004016BF /* Presentation */,
+				6C341EA02CDC8E3B003DA5FC /* Network */,
+				6C341EAB2CDC8E50003DA5FC /* Extensions */,
 			);
 			name = "35-Seminar";
 			packageProductDependencies = (
@@ -144,7 +140,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					6CFA97CB2CB1017F004B6A40 = {
 						CreatedOnToolsVersion = 15.4;
@@ -179,7 +175,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CB52F482CD5F28E00C8D130 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,8 +187,6 @@
 			files = (
 				6CFA97D02CB1017F004B6A40 /* AppDelegate.swift in Sources */,
 				6CFA97D22CB1017F004B6A40 /* SceneDelegate.swift in Sources */,
-				6CB52F4A2CD5F38C00C8D130 /* Environment.swift in Sources */,
-				6CB52F4C2CD5F3DD00C8D130 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
