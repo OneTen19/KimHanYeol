@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct LogInRequest: Codable {
+  let username: String
+  let password: String
+}
+
+struct LogInSuccess: Codable {
+    let result: LogInFailed?
+    let token: Int
+}
+
+struct LogInFailed: Codable {
+    let code: String
+}

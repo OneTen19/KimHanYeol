@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct SearchHobbyResponse: Codable {
+    let result: SearchHobbyFailed?
+    let hobby: String
+}
+
+struct SearchHobbyFailed: Codable {
+    let code: String
+}
