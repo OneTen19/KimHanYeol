@@ -61,14 +61,12 @@ class UserService {
                     return
                 }
                 
-                
                 switch response.result {
                 case .success:
                     let token = self.decodeToken(data: data)
-                    completion(.success(true))
-                    // token ud에 저장
                     UserDefaults.standard.set(token, forKey: "token")
                     UserDefaults.standard.set(username, forKey: "username")
+                    completion(.success(true))
                 case .failure:
                     let error = self.handleStatusCode(statusCode, data: data)
                     completion(.failure(error))
@@ -139,6 +137,7 @@ class UserService {
     func modifyInfo(hobby: String, password: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         let url = Environment.baseURL + "/user"
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        
         let parameters = ModifyInfoRequest(hobby: hobby, password: password)
         
         AF.request(url, method: .put, parameters: parameters, encoder: JSONParameterEncoder.default, headers: ["token": "\(token)"])

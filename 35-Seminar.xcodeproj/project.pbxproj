@@ -104,8 +104,8 @@
 				6C341EAB2CDC8E50003DA5FC /* Extensions */,
 				6C14AB732CCE8B2B004016BF /* Resources */,
 				6C2BE8712CBD3FE800428D4D /* Delegate */,
-				6C14AB762CCE8C7B004016BF /* Presentation */,
 				6C341EA02CDC8E3B003DA5FC /* Network */,
+				6C14AB762CCE8C7B004016BF /* Presentation */,
 			);
 			path = "35-Seminar";
 			sourceTree = "<group>";

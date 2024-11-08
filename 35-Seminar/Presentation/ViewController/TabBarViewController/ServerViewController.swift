@@ -193,7 +193,7 @@ class ServerViewController: UIViewController {
     @objc private func logOutButtonTapped() {
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "hobby")
-        UserDefaults.standard.removeObject(forKey: "name")
+        UserDefaults.standard.removeObject(forKey: "username")
         self.dismiss(animated: false)
     }
 
