@@ -73,11 +73,20 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		6C8EE1D42CDCA9D400C9BAE4 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				6CB52F472CD5F28E00C8D130 /* Config.xcconfig */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		6CFA97C32CB1017F004B6A40 = {
 			isa = PBXGroup;
 			children = (
 				6CFA97CE2CB1017F004B6A40 /* 35-Seminar */,
 				6CFA97CD2CB1017F004B6A40 /* Products */,
+				6C8EE1D42CDCA9D400C9BAE4 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,8 +104,8 @@
 				6C341EAB2CDC8E50003DA5FC /* Extensions */,
 				6C14AB732CCE8B2B004016BF /* Resources */,
 				6C2BE8712CBD3FE800428D4D /* Delegate */,
-				6C14AB762CCE8C7B004016BF /* Presentation */,
 				6C341EA02CDC8E3B003DA5FC /* Network */,
+				6C14AB762CCE8C7B004016BF /* Presentation */,
 			);
 			path = "35-Seminar";
 			sourceTree = "<group>";
@@ -195,7 +204,8 @@
 /* Begin XCBuildConfiguration section */
 		6CFA97DE2CB10180004B6A40 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CB52F472CD5F28E00C8D130 /* Config.xcconfig */;
+			baseConfigurationReferenceAnchor = 6C14AB732CCE8B2B004016BF /* Resources */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -259,7 +269,8 @@
 		};
 		6CFA97DF2CB10180004B6A40 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CB52F472CD5F28E00C8D130 /* Config.xcconfig */;
+			baseConfigurationReferenceAnchor = 6C14AB732CCE8B2B004016BF /* Resources */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
